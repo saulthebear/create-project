@@ -13,6 +13,8 @@ optionally be installed automatically with the `--install` flag.
 
 ## Usage
 
+Clone this repo, `cd` into the directory, and run `npm link` to have access to the `create-project` command globally.
+
 Execute `create-project` or follow the prompts to set your new project's
 directory name, the template you want to use, and whether you want to initialize
 it as a git repository.

@@ -2,7 +2,7 @@
   "name": "create-project",
   "description": "Bootstrap your next project from custom templates",
   "version": "1.0.0",
-  "license": "UNLICENSED",
+  "license": "MIT",
   "bin": {
     "create-project": "index.js"
   },
@@ -13,7 +13,7 @@
   },
   "keywords": [
     "create-project",
-    "Stefan Vosloo",
+    "template",
     "cli"
   ],
   "files": [
