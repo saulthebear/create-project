@@ -11,13 +11,28 @@ const init = require("./utils/init")
 const cli = require("./utils/cli")
 const log = require("./utils/log")
 const inquirer = require("inquirer")
+const fs = require("fs")
+const path = require("path")
+const chalk = require("chalk")
 
 const input = cli.input
 const flags = cli.flags
 const { clear, debug } = flags
 
 async function promptForMissingOptions(options) {
-  const templates = ["express", "express-sync"]
+  // Dynamically set templates from templates folder
+  let templates = []
+  try {
+    const templatesDir = path.join(__dirname, "templates")
+    templates = await fs.promises.readdir(templatesDir)
+  } catch (err) {
+    console.error(
+      "%s Cannot read templates directory!",
+      chalk.red.bold("ERROR")
+    )
+    throw err
+  }
+
   const defaultProjectName = "new-project"
   const defaultTemplate = templates[0]
 
