@@ -34,7 +34,7 @@ async function promptForMissingOptions(options) {
     questions.push({
       type: "input",
       name: "projectName",
-      message: "Project directory name",
+      message: "Project directory name:",
       default: defaultProjectName,
     })
   }
@@ -43,7 +43,7 @@ async function promptForMissingOptions(options) {
     questions.push({
       type: "list",
       name: "template",
-      message: "Which project template would you like to use",
+      message: "Which project template would you like to use?",
       choices: templates,
       default: defaultTemplate,
     })
