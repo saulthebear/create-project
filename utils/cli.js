@@ -24,6 +24,26 @@ const flags = {
     alias: `v`,
     desc: `Print CLI version`,
   },
+  name: {
+    type: "string",
+    alias: "n",
+    desc: "Project name",
+  },
+  git: {
+    type: "boolean",
+    alias: "g",
+    desc: "Initialize project as a new git repo",
+  },
+  install: {
+    type: "boolean",
+    alias: "i",
+    desc: "Install project dependencies",
+  },
+  yes: {
+    type: "boolean",
+    alias: "y",
+    desc: "Skip prompts and use defaults",
+  },
 }
 
 const commands = {
