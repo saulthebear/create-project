@@ -15,7 +15,6 @@ const inquirer = require("inquirer")
 const input = cli.input
 const flags = cli.flags
 const { clear, debug } = flags
-const template = input[0]
 
 async function promptForMissingOptions(options) {
   const templates = ["express", "express-sync"]
@@ -85,4 +84,8 @@ async function promptForMissingOptions(options) {
 
   options = await promptForMissingOptions(options)
   console.log("Options>>", options)
+
+  const { createProject } = await import("./main.mjs")
+
+  createProject(options)
 })()

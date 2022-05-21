@@ -1,38 +1,40 @@
 {
-	"name": "create-project",
-	"description": "Bootstrap your next project from custom templates",
-	"version": "0.0.1",
-	"license": "UNLICENSED",
-	"bin": {
-		"create-project": "index.js"
-	},
-	"author": {
-		"name": "Stefan Vosloo",
-		"email": "stefanvosloo1@gmail.com",
-		"url": "https://github.com/saulthebear"
-	},
-	"keywords": [
-		"create-project",
-		"Stefan Vosloo"
-	],
-	"files": [
-		"index.js",
-		"utils"
-	],
-	"scripts": {
-		"format": "prettier --write \"./**/*.{js,json}\""
-	},
-	"dependencies": {
-		"chalk": "^4.1.2",
-		"cli-alerts": "^1.2.2",
-		"cli-handle-error": "^4.4.0",
-		"cli-handle-unhandled": "^1.1.1",
-		"cli-meow-help": "^3.1.0",
-		"cli-welcome": "^2.2.2",
-		"inquirer": "^8.2.4",
-		"meow": "^9.0.0"
-	},
-	"devDependencies": {
-		"prettier": "^2.6.2"
-	}
+  "name": "create-project",
+  "description": "Bootstrap your next project from custom templates",
+  "version": "0.0.1",
+  "license": "UNLICENSED",
+  "bin": {
+    "create-project": "index.js"
+  },
+  "author": {
+    "name": "Stefan Vosloo",
+    "email": "stefanvosloo1@gmail.com",
+    "url": "https://github.com/saulthebear"
+  },
+  "keywords": [
+    "create-project",
+    "Stefan Vosloo",
+    "cli"
+  ],
+  "files": [
+    "index.js",
+    "utils"
+  ],
+  "scripts": {
+    "format": "prettier --write \"./**/*.{js,json}\""
+  },
+  "dependencies": {
+    "chalk": "^4.1.2",
+    "cli-alerts": "^1.2.2",
+    "cli-handle-error": "^4.4.0",
+    "cli-handle-unhandled": "^1.1.1",
+    "cli-meow-help": "^3.1.0",
+    "cli-welcome": "^2.2.2",
+    "inquirer": "^8.2.4",
+    "meow": "^9.0.0",
+    "ncp": "^2.0.0"
+  },
+  "devDependencies": {
+    "prettier": "^2.6.2"
+  }
 }
