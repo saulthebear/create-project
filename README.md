@@ -30,3 +30,9 @@ Or set these options with the following flags:
 ```bash
 create-project <template> [flags]
 ```
+
+## Resources referenced
+
+- [How to build a CLI with Node.js - Twilio](https://www.twilio.com/blog/how-to-build-a-cli-with-node-js)
+- [npm create-node-cli package - Ahmad Awais](https://www.npmjs.com/package/create-node-cli)
+- [Easy Way to Create CLI Scripts with JavaScript and Node - James Q Quick](https://youtu.be/dfTpFFZwazI)
