@@ -98,7 +98,6 @@ async function promptForMissingOptions(options) {
   }
 
   options = await promptForMissingOptions(options)
-  console.log("Options>>", options)
 
   const { createProject } = await import("./main.mjs")
 

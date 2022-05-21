@@ -3,12 +3,9 @@ import fs from "fs"
 import ncp from "ncp"
 import path from "path"
 import { promisify } from "util"
-
-// const chalk = require("chalk")
-// const fs = require("fs")
-// const ncp = require("ncp")
-// const path = require("path")
-// const { promisify } = require("util")
+import { execa } from "execa"
+import Listr from "listr"
+import { projectInstall } from "pkg-install"
 
 const access = promisify(fs.access)
 const copy = promisify(ncp)
@@ -17,6 +14,16 @@ async function copyTemplateFiles(options) {
   return copy(options.templateDirectory, options.targetDirectory, {
     clobber: false, // Don't overwrite
   })
+}
+
+async function initGit(options) {
+  const result = await execa("git", ["init"], {
+    cwd: options.targetDirectory,
+  })
+
+  if (result.failed) {
+    return Promise.reject(new Error("Failed to initialize git"))
+  }
 }
 
 export async function createProject(options) {
@@ -42,8 +49,27 @@ export async function createProject(options) {
     process.exit(1)
   }
 
-  console.log("Copy project files")
-  await copyTemplateFiles(options)
+  const tasks = new Listr([
+    {
+      title: "Copy project files",
+      task: () => copyTemplateFiles(options),
+    },
+    {
+      title: "Initialize git",
+      task: () => initGit(options),
+      enabled: () => options.git,
+    },
+    {
+      title: "Install dependencies",
+      task: () => projectInstall({ cwd: options.targetDirectory }),
+      skip: () =>
+        !options.install
+          ? "Pass --install to automatically install dependencies"
+          : undefined,
+    },
+  ])
+
+  await tasks.run()
 
   console.log("%s Project ready", chalk.green.bold("DONE"))
   return true
